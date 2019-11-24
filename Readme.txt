@@ -43,17 +43,13 @@ Short implementation:-
 
 from skimage import data, img_as_float
 from skimage.measure import compare_ssim as ssim
-# imA=cv2.imread(r"D:\python\minor1\S2.jpg")
-# imB=cv2.imread(r"D:\python\minor1\S5.jpg")
-# s=ssim(imA,imB,multichannel=True)
-# print(s)
 from PIL import Image,ImageTk
 import numpy
-a=Image.open(r"D:\share.it\Picture\banaras\IMG_20161231_165209.jpg")
+a=Image.open(r"image_path_here_first")
 a=a.convert("L") #method to convert a colored image to monochrome
 a = a.resize((250, 250), Image.ANTIALIAS)
 a=numpy.asarray(a)
-b=Image.open(r"D:\share.it\Picture\banaras\IMG_20161229_145150.jpg")
+b=Image.open(r"image_path_here_second")
 b=b.convert("L")
 b=b.resize((250,250),Image.ANTIALIAS)
 b=numpy.asarray(b)

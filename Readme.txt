@@ -20,4 +20,44 @@ How to use : -
  
 -> search Button - Would open up a window where you have to select one word to be searched from a list of all words appearing in the document. Submitting that word would open up a window containing top 10 paragraphs containing that particular word in it.
 
-  
+Bonus 1 :-
+ 
+Python library to fetch pdf documents PyPDF2 can be used. Rest things will be same.
+
+Example code to fetch pdf douments:-
+
+
+creating a pdf reader object
+import PyPDF2
+pdfFileObj = open(r'pdf_document_here', 'rb')
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+pageObj=pdfReader.getPage(page_number_here)
+print(pageObj)
+
+
+Bonus 2 :-
+
+SSIM(Structural Similarity Measure Index) can be used to match 2 images and return a value between 0 and 1 on how similar 2 images are and return top matching images.
+
+Short implementation:-
+
+from skimage import data, img_as_float
+from skimage.measure import compare_ssim as ssim
+# imA=cv2.imread(r"D:\python\minor1\S2.jpg")
+# imB=cv2.imread(r"D:\python\minor1\S5.jpg")
+# s=ssim(imA,imB,multichannel=True)
+# print(s)
+from PIL import Image,ImageTk
+import numpy
+a=Image.open(r"D:\share.it\Picture\banaras\IMG_20161231_165209.jpg")
+a=a.convert("L") #method to convert a colored image to monochrome
+a = a.resize((250, 250), Image.ANTIALIAS)
+a=numpy.asarray(a)
+b=Image.open(r"D:\share.it\Picture\banaras\IMG_20161229_145150.jpg")
+b=b.convert("L")
+b=b.resize((250,250),Image.ANTIALIAS)
+b=numpy.asarray(b)
+# print(len(a),len(b))
+s=ssim(a,b,multichannel=True)
+print(s)
+
